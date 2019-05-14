@@ -8,6 +8,32 @@ use Module::Load;
 
 =pod
 
+=head1 USAGE
+
+This module recursive passes through template_base_dir to find perl module
+(*.pm) that are a subclass of Mojolicious::Controller and some paths;
+
+For module X::Y::Z it adds the decamelize version
+
+  x/y/z
+  x/y/z/index
+  x/y/z/index/other/path
+
+all redirect to action route inside module.
+
+The last structure is useful for routing seach. But be careful to correct
+relative urls of other items in html page.
+
+This can be done in many ways. One is, as an example, to add to the layout
+a base_url like this
+
+  % my $base_url = url_for(undef, {query => undef}); $base_url =~ s|/$||;
+  <base href="<%= $base_url %>" />
+
+=cut
+
+=pod
+
 =method register
 
   plugin->register($app);
@@ -72,11 +98,16 @@ sub register {
 		my $route = $self->get_best_matched_route($template,$r);
 		my $routep = $route->to_string;
 		$template =~ s/$routep//;
-	    $route->route($template)->to(app => $ctl, action => 'route');
+        # support for /url_component/index
+        my $tr = $route->route($template)->to(app => $ctl, action => 'route');
+        $tr->any('/');
+        # and for /url_component/index/a/b/x
+        $tr->any('/*query');
 		if ($template =~ s/$dindex$//) {
-		    $route->route($template)->to(cb =>
+            # /url_component redirect to /url_component/index
+             $route->route($template)->to(cb =>
 				sub {my $s= shift; $s->redirect_to("$routep${template}$dindex")});
-		}
+        }
 	}
   }
 }
