@@ -1,11 +1,20 @@
 package Mojolicious::Plugin::AutoRoutePm;
+
 use Mojo::Base 'Mojolicious::Plugin';
-# ABSTRACT: A plugin to automatically add routes by *.pm modules which are a Mojolicious::Controller
+# ABSTRACT: Mojolicious plugin to create routes by *.pm modules which are a controller
 
 use File::Find::Rule;
 use Module::Load;
 
-our $VERSION = '0.10';
+=pod
+
+=method register
+
+  plugin->register($app);
+
+Register plugin in L<Mojolicious> application.
+
+=cut
 
 sub register {
   my ($self, $app, $conf) = @_;
@@ -104,6 +113,14 @@ sub path_to_controller {
 
     return $url;
 }
+
+=pod
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<http://mojolicio.us>.
+
+=cut
 
 
 1;
