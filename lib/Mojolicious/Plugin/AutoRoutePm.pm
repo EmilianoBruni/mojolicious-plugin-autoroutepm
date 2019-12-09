@@ -17,9 +17,14 @@ For module X::Y::Z it adds the decamelize version
 
   x/y/z
   x/y/z/index
-  x/y/z/index/other/path
+  x/y/z/index/*query
 
 all redirect to action route inside module.
+
+If Z is default_index it adds also
+
+  x/y
+  x/y/*query
 
 The last structure is useful for routing seach. But be careful to correct
 relative urls of other items in html page.
@@ -99,14 +104,16 @@ sub register {
 		my $routep = $route->to_string;
 		$template =~ s/$routep//;
         # support for /url_component/index
-        my $tr = $route->route($template)->to(app => $ctl, action => 'route');
+        my $tr = $route->any($template)->to(app => $ctl, action => 'route');
         $tr->any('/');
         # and for /url_component/index/a/b/x
         $tr->any('/*query');
-		if ($template =~ s/$dindex$//) {
-            # /url_component redirect to /url_component/index
-             $route->route($template)->to(cb =>
-				sub {my $s= shift; $s->redirect_to("$routep${template}$dindex")});
+        if ($template =~ s/$dindex$//) {
+            # support for /url_component
+            my $tr = $route->any($template)->to(app => $ctl, action => 'route');
+            $tr->any('/');
+            # and for /url_component/a/b/x
+            $tr->any('/*query');
         }
 	}
   }
