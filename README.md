@@ -25,9 +25,14 @@ For module X::Y::Z it adds the decamelize version
 
     x/y/z
     x/y/z/index
-    x/y/z/index/other/path
+    x/y/z/index/*query
 
 all redirect to action route inside module.
+
+If Z is default\_index it adds also
+
+    x/y
+    x/y/*query
 
 The last structure is useful for routing seach. But be careful to correct
 relative urls of other items in html page.
