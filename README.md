@@ -2,7 +2,7 @@
 
 Mojolicious::Plugin::AutoRoutePm - Mojolicious plugin to create routes by \*.pm modules which are a controller
 
-[![Build Status](https://travis-ci.org/EmilianoBruni/mojolicious-plugin-autoroutepm.png?branch=master)](https://travis-ci.org/EmilianoBruni/mojolicious-plugin-autoroutepm)
+[![Build Status](https://travis-ci.com/EmilianoBruni/mojolicious-plugin-autoroutepm.png?branch=master)](https://travis-ci.com/EmilianoBruni/mojolicious-plugin-autoroutepm)
 
 # VERSION
 
