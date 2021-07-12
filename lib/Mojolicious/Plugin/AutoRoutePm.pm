@@ -45,7 +45,7 @@ a base_url like this
 
 =pod
 
-=method register
+=head2 register
 
   plugin->register($app);
 
