@@ -4,6 +4,12 @@
 
 Mojolicious::Plugin::AutoRoutePm - Mojolicious plugin to create routes by *.pm modules which are a controller
 
+=for html <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/EmilianoBruni/mojolicious-plugin-autoroutepm?style=plastic"> <a href="https://travis-ci.com/EmilianoBruni/mojolicious-plugin-mongodbv2"><img alt="Travis tests" src="https://img.shields.io/travis/com/EmilianoBruni/mojolicious-plugin-autoroutepm?label=Travis%20tests&style=plastic"></a>
+
+=head1 VERSION
+
+version 0.15
+
 =head1 USAGE
 
 This module recursive passes through template_base_dir to find perl module
@@ -40,10 +46,6 @@ Register plugin in L<Mojolicious> application.
 =head1 SEE ALSO
 
 L<Mojolicious>, L<Mojolicious::Guides>, L<http://mojolicio.us>.
-
-=head1 VERSION
-
-version 0.14
 
 =head1 AUTHOR
 
