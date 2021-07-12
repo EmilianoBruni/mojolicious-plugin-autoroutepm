@@ -8,6 +8,12 @@ use Module::Load;
 
 =pod
 
+=begin :badge
+=begin html
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/EmilianoBruni/mojolicious-plugin-autoroutepm?style=plastic"> <a href="https://travis-ci.com/EmilianoBruni/mojolicious-plugin-mongodbv2"><img alt="Travis tests" src="https://img.shields.io/travis/com/EmilianoBruni/mojolicious-plugin-autoroutepm?label=Travis%20tests&style=plastic"></a>
+=end html
+=end :badge
+
 =head1 USAGE
 
 This module recursive passes through template_base_dir to find perl module
@@ -64,8 +70,9 @@ sub register {
 	# removing it we got the base path
 	my $template_base_dirs = [];
 	foreach (@$system_template_base_dirs) {
-		s/templates$//;
-		push @$template_base_dirs, $_;
+        my $tmpl_base_dir = $_; # so next replace doesn't affect origianl path
+		$tmpl_base_dir =~ s/templates$//;
+		push @$template_base_dirs, $tmpl_base_dir;
 	}
   # Top directory
   my $top_dir = $conf->{top_dir} || '.';
