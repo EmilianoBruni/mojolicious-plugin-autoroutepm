@@ -18,10 +18,20 @@ use Module::Load;
 
 =end :badge
 
-=head1 USAGE
+=head1 SYNOPSIS
 
-This module recursive passes through template_base_dir to find perl module
-(*.pm) that are a subclass of Mojolicious::Controller and some paths;
+    use Mojolicious::Lite;
+    plugin 'AutoRoutePm', {
+        route   => [ app->routes ],
+        top_dir => 'site',
+    };
+
+=head1 DESCRIPTION
+
+This module recursive passes through template_base_dir to find perl modules
+(*.pm) that are a subclass of Mojolicious::Controller and adds routes for them.
+
+=head1 USAGE
 
 For module X::Y::Z it adds the decamelize version
 
