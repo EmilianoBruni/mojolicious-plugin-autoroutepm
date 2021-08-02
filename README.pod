@@ -8,12 +8,22 @@ Mojolicious::Plugin::AutoRoutePm - Mojolicious plugin to create routes by *.pm m
 
 =head1 VERSION
 
-version 0.15
+version 0.16
+
+=head1 SYNOPSIS
+
+    use Mojolicious::Lite;
+    plugin 'AutoRoutePm', {
+        route   => [ app->routes ],
+        top_dir => 'site',
+    };
+
+=head1 DESCRIPTION
+
+This module recursive passes through template_base_dir to find perl modules
+(*.pm) that are a subclass of Mojolicious::Controller and adds routes for them.
 
 =head1 USAGE
-
-This module recursive passes through template_base_dir to find perl module
-(*.pm) that are a subclass of Mojolicious::Controller and some paths;
 
 For module X::Y::Z it adds the decamelize version
 
