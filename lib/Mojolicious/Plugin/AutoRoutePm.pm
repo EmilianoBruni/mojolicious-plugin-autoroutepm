@@ -123,7 +123,7 @@ sub register {
 		$template = "/$template";
 		my $route = $self->get_best_matched_route($template,$r);
 		my $routep = $route->to_string;
-		$template =~ s/$routep//;
+		$template =~ s/^$routep//;
         # support for /url_component/index
         my $tr = $route->any($template)->to(app => $ctl, action => 'route');
         $tr->any('/');
