@@ -4,11 +4,17 @@
 
 Mojolicious::Plugin::AutoRoutePm - Mojolicious plugin to create routes by *.pm modules which are a controller
 
-=for html <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/EmilianoBruni/mojolicious-plugin-autoroutepm?style=plastic"> <a href="https://travis-ci.com/EmilianoBruni/mojolicious-plugin-mongodbv2"><img alt="Travis tests" src="https://img.shields.io/travis/com/EmilianoBruni/mojolicious-plugin-autoroutepm?label=Travis%20tests&style=plastic"></a>
+=for html <p>
+    <a href="https://github.com/emilianobruni/mojolicious-plugin-autoroutepm/actions/workflows/test.yml">
+        <img alt="github workflow tests" src="https://github.com/emilianobruni/mojolicious-plugin-autoroutepm/workflows/test.yml/badge.svg">
+    </a>
+    <img alt="Top language: " src="https://img.shields.io/github/languages/top/emilianobruni/mojolicious-plugin-autoroutepm">
+    <img alt="github last commit" src="https://img.shields.io/github/last-commit/emilianobruni/mojolicious-plugin-autoroutepm">
+</p>
 
 =head1 VERSION
 
-version 0.19
+version 0.21
 
 =head1 SYNOPSIS
 
@@ -22,6 +28,8 @@ version 0.19
 
 This module recursive passes through template_base_dir to find perl modules
 (*.pm) that are a subclass of Mojolicious::Controller and adds routes for them.
+
+=encoding UTF-8
 
 =head1 USAGE
 
@@ -52,6 +60,18 @@ a base_url like this
   plugin->register($app);
 
 Register plugin in L<Mojolicious> application.
+
+=head1 BUGS/CONTRIBUTING
+
+Please report any bugs through the web interface at L<https://github.com/EmilianoBruni/mojo-websocket-pubsub/issues>
+If you want to contribute changes or otherwise involve yourself in development, feel free to fork the Git repository from
+L<https://github.com/EmilianoBruni/mojo-websocket-pubsub/>.
+
+=head1 SUPPORT
+
+You can find this documentation with the perldoc command too.
+
+    perldoc Mojo::WebSocket::PubSub
 
 =head1 SEE ALSO
 
