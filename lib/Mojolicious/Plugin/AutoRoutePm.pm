@@ -1,71 +1,9 @@
 package Mojolicious::Plugin::AutoRoutePm;
 
 use Mojo::Base 'Mojolicious::Plugin';
-# ABSTRACT: Mojolicious plugin to create routes by *.pm modules which are a controller
 
 use File::Find::Rule;
 use Module::Load;
-
-=pod
-
-=begin :badge
-
-=begin html
-
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/EmilianoBruni/mojolicious-plugin-autoroutepm?style=plastic"> <a href="https://travis-ci.com/EmilianoBruni/mojolicious-plugin-mongodbv2"><img alt="Travis tests" src="https://img.shields.io/travis/com/EmilianoBruni/mojolicious-plugin-autoroutepm?label=Travis%20tests&style=plastic"></a>
-
-=end html
-
-=end :badge
-
-=head1 SYNOPSIS
-
-    use Mojolicious::Lite;
-    plugin 'AutoRoutePm', {
-        route   => [ app->routes ],
-        top_dir => 'site',
-    };
-
-=head1 DESCRIPTION
-
-This module recursive passes through template_base_dir to find perl modules
-(*.pm) that are a subclass of Mojolicious::Controller and adds routes for them.
-
-=head1 USAGE
-
-For module X::Y::Z it adds the decamelize version
-
-  x/y/z
-  x/y/z/index
-  x/y/z/index/*query
-
-all redirect to action route inside module.
-
-If Z is default_index it adds also
-
-  x/y
-  x/y/*query
-
-The last structure is useful for routing seach. But be careful to correct
-relative urls of other items in html page.
-
-This can be done in many ways. One is, as an example, to add to the layout
-a base_url like this
-
-  % my $base_url = url_for(undef, {query => undef}); $base_url =~ s|/$||;
-  <base href="<%= $base_url %>" />
-
-=cut
-
-=pod
-
-=head2 register
-
-  plugin->register($app);
-
-Register plugin in L<Mojolicious> application.
-
-=cut
 
 sub register {
   my ($self, $app, $conf) = @_;
@@ -173,13 +111,95 @@ sub path_to_controller {
     return $url;
 }
 
+1;
+
+__END__
+
+# ABSTRACT: Mojolicious plugin to create routes by *.pm modules which are a controller
+
 =pod
+
+=encoding UTF-8
+
+=begin :badge
+
+=begin html
+
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/EmilianoBruni/mojolicious-plugin-autoroutepm?style=plastic"> <a href="https://travis-ci.com/EmilianoBruni/mojolicious-plugin-mongodbv2"><img alt="Travis tests" src="https://img.shields.io/travis/com/EmilianoBruni/mojolicious-plugin-autoroutepm?label=Travis%20tests&style=plastic"></a>
+<p>
+    <a href="https://github.com/emilianobruni/mojolicious-plugin-autoroutepm/actions/workflows/test.yml">
+        <img alt="github workflow tests" src="https://github.com/emilianobruni/mojolicious-plugin-autoroutepm/workflows/test.yml/badge.svg">
+    </a>
+    <img alt="Top language: " src="https://img.shields.io/github/languages/top/emilianobruni/mojolicious-plugin-autoroutepm">
+    <img alt="github last commit" src="https://img.shields.io/github/last-commit/emilianobruni/mojolicious-plugin-autoroutepm">
+</p>
+
+=end html
+
+=end :badge
+
+=head1 SYNOPSIS
+
+    use Mojolicious::Lite;
+    plugin 'AutoRoutePm', {
+        route   => [ app->routes ],
+        top_dir => 'site',
+    };
+
+=head1 DESCRIPTION
+
+This module recursive passes through template_base_dir to find perl modules
+(*.pm) that are a subclass of Mojolicious::Controller and adds routes for them.
+
+=head1 USAGE
+
+For module X::Y::Z it adds the decamelize version
+
+  x/y/z
+  x/y/z/index
+  x/y/z/index/*query
+
+all redirect to action route inside module.
+
+If Z is default_index it adds also
+
+  x/y
+  x/y/*query
+
+The last structure is useful for routing seach. But be careful to correct
+relative urls of other items in html page.
+
+This can be done in many ways. One is, as an example, to add to the layout
+a base_url like this
+
+  % my $base_url = url_for(undef, {query => undef}); $base_url =~ s|/$||;
+  <base href="<%= $base_url %>" />
+
+=cut
+
+=head2 register
+
+  plugin->register($app);
+
+Register plugin in L<Mojolicious> application.
+
+=cut
+
+=head1 BUGS/CONTRIBUTING
+
+Please report any bugs through the web interface at L<https://github.com/EmilianoBruni/mojo-websocket-pubsub/issues>
+If you want to contribute changes or otherwise involve yourself in development, feel free to fork the Git repository from
+L<https://github.com/EmilianoBruni/mojo-websocket-pubsub/>.
+
+=head1 SUPPORT
+
+You can find this documentation with the perldoc command too.
+
+    perldoc Mojo::WebSocket::PubSub
+
 
 =head1 SEE ALSO
 
 L<Mojolicious>, L<Mojolicious::Guides>, L<http://mojolicio.us>.
 
 =cut
-
-
-1;
