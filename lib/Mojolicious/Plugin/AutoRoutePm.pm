@@ -138,8 +138,8 @@ __END__
 =begin html
 
 <p>
-    <a href="https://github.com/emilianobruni/mojolicious-plugin-autoroutepm/actions/workflows/test.yml">
-        <img alt="github workflow tests" src="https://github.com/emilianobruni/mojolicious-plugin-autoroutepm/workflows/test.yml/badge.svg">
+    <a href="https://github.com/EmilianoBruni/mojolicious-plugin-autoroutepm/actions/workflows/test.yml">
+        <img alt="github workflow tests" src="https://github.com/EmilianoBruni/mojolicious-plugin-autoroutepm/actions/workflows/test.yml/badge.svg">
     </a>
     <img alt="Top language: " src="https://img.shields.io/github/languages/top/emilianobruni/mojolicious-plugin-autoroutepm">
     <img alt="github last commit" src="https://img.shields.io/github/last-commit/emilianobruni/mojolicious-plugin-autoroutepm">
