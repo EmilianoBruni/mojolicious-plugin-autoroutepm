@@ -49,6 +49,9 @@ $t->get_ok('/welcome/anotherPage/these/are/parameters')->status_is(200)
 $t->get_ok('/welcome/anotherPage.js')->status_is(200)
   ->content_is( "var a = 1", 'Another page as javascript' );
 
+$t->get_ok('/welcome/anotherPage.grid.js')->status_is(200)
+  ->content_is( "var a = 1", 'Multi-extension javascript' );
+
 $t->get_ok('/welcome/anotherPage.json')->status_is(200)
   ->json_is( '' => { anotherPage => 1 }, 'Another page as JSON' );
 

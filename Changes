@@ -2,7 +2,7 @@ Changelog for Mojolicious-Plugin-AutoRoutePm
 
 0.21 2021-11-11T15:09:20
  - Removed Module::Load dependence
- - Starting from Mojolicious 9.11 we must declare format detection.
+ - Starting from Mojolicious 9.11 we must declare format detection. Currently accepted all.
 
 0.20 2021-11-11T13:51:30
  - Additional pages in a dir other than the default one didn't work. Solved

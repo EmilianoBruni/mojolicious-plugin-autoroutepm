@@ -72,11 +72,8 @@ sub register {
             $template =~ s/^$routep//;
 
             # support for /url_component/index
-            my $tr = $route->any(
-                $template => [
-                    format => [ 'html', 'json', 'css', 'js' ]
-                ]
-            )->to( app => $ctl, action => 'route', format => undef );
+            my $tr = $route->any( $template => [ format => 1 ] )
+              ->to( app => $ctl, action => 'route', format => undef );
             $tr->any('');
 
             # and for /url_component/index/a/b/x
@@ -84,11 +81,8 @@ sub register {
             if ( $template =~ s/$dindex$// ) {
 
                 # support for /url_component
-                my $tr = $route->any(
-                    $template => [
-                        format => [ 'html', 'json', 'css', 'js' ]
-                    ]
-                )->to( app => $ctl, action => 'route', format => undef );
+                my $tr = $route->any( $template => [ format => 1 ] )
+                  ->to( app => $ctl, action => 'route', format => undef );
                 $tr->any('/');
             }
         }
