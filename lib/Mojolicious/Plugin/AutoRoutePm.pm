@@ -64,15 +64,13 @@ sub register {
 		$template =~ s/^$routep//;
         # support for /url_component/index
         my $tr = $route->any($template)->to(app => $ctl, action => 'route');
-        $tr->any('/');
+        $tr->any('');
         # and for /url_component/index/a/b/x
         $tr->any('/*query');
         if ($template =~ s/$dindex$//) {
             # support for /url_component
             my $tr = $route->any($template)->to(app => $ctl, action => 'route');
             $tr->any('/');
-            # and for /url_component/a/b/x
-            $tr->any('/*query');
         }
 	}
   }
