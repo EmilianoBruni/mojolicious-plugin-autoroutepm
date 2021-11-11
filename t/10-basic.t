@@ -46,4 +46,11 @@ $t->get_ok('/welcome/index/these/are/parameters')->status_is(200)
 $t->get_ok('/welcome/anotherPage/these/are/parameters')->status_is(200)
   ->content_is( "This is SPARTA\n", 'Another page with parameters in path' );
 
+$t->get_ok('/welcome/anotherPage.js')->status_is(200)
+  ->content_is( "var a = 1", 'Another page as javascript' );
+
+$t->get_ok('/welcome/anotherPage.json')->status_is(200)
+  ->json_is( '' => { anotherPage => 1 }, 'Another page as JSON' );
+
+
 done_testing();
