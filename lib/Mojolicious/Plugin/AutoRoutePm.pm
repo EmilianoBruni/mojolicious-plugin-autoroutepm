@@ -60,12 +60,13 @@ sub register {
     }
 
     # sort routes so, first existing .pm module which aren't DocumentRoot
-    my @template_index = grep /$dindex$/,@templates;
-    my @template_nindex = grep !/$dindex$/,@templates;
-    @templates = (@template_nindex, @template_index);
+    my @template_index  = grep /$dindex$/,  @templates;
+    my @template_nindex = grep !/$dindex$/, @templates;
+    @templates = ( @template_nindex, @template_index );
 
     # Register routes
     for my $template (@templates) {
+
         # Route
         my $ctl = $self->path_to_controller($template);
         load_class $ctl;
@@ -88,6 +89,7 @@ sub register {
                 my $tr = $route->any( $template => [ format => 1 ] )
                   ->to( app => $ctl, action => 'route', format => undef );
                 $tr->any('/');
+
                 # and for /url_component/a/b/x
                 $tr->any('/*query');
             }
