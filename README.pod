@@ -5,8 +5,8 @@
 Mojolicious::Plugin::AutoRoutePm - Mojolicious plugin to create routes by *.pm modules which are a controller
 
 =for html <p>
-    <a href="https://github.com/emilianobruni/mojolicious-plugin-autoroutepm/actions/workflows/test.yml">
-        <img alt="github workflow tests" src="https://github.com/emilianobruni/mojolicious-plugin-autoroutepm/workflows/test.yml/badge.svg">
+    <a href="https://github.com/EmilianoBruni/mojolicious-plugin-autoroutepm/actions/workflows/test.yml">
+        <img alt="github workflow tests" src="https://github.com/EmilianoBruni/mojolicious-plugin-autoroutepm/actions/workflows/test.yml/badge.svg">
     </a>
     <img alt="Top language: " src="https://img.shields.io/github/languages/top/emilianobruni/mojolicious-plugin-autoroutepm">
     <img alt="github last commit" src="https://img.shields.io/github/last-commit/emilianobruni/mojolicious-plugin-autoroutepm">
@@ -14,7 +14,7 @@ Mojolicious::Plugin::AutoRoutePm - Mojolicious plugin to create routes by *.pm m
 
 =head1 VERSION
 
-version 0.21
+version 0.22
 
 =head1 SYNOPSIS
 
